@@ -37,19 +37,19 @@ useEffect(() => {
       <SWNav />'
       <h1>People</h1>
       {
-        people.map(({uid, name}) => {
+        people.map(({uid, name, url}) => {
           return (
-            <EntityCard key={uid} data={{uid, name}} />
+            <EntityCard key={uid} data={{uid, name, url, type:"characters"}} />
           )
         })
       }
       <h1>Planets</h1>
-      {planets.map(({ uid, name }) => (
-        <EntityCard key={uid} data={{ uid, name }} />
+      {planets.map(({ uid, name, url }) => (
+        <EntityCard key={uid} data={{ uid, name, url, type:"planets" }} />
       ))}
       <h1>Vehicles</h1>
-      {vehicles.map(({ uid, name }) => (
-        <EntityCard key={uid} data={{ uid, name }} />
+      {vehicles.map(({ uid, name, url }) => (
+        <EntityCard key={uid} data={{ uid, name, url, type:"vehicles" }} />
       ))}
       
     </>
