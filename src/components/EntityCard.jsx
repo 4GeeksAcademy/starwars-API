@@ -4,6 +4,7 @@ import { useContext } from 'react';
 import { Card } from 'react-bootstrap/';
 import cardDefaultSVG from '../assets/card-default.svg'
 import { FavoritesContext } from '../Favorites';
+import LearnMore from '../LearnMore';
 
 
 function EntityCard({data}) {
@@ -17,6 +18,7 @@ function EntityCard({data}) {
           Some quick example text to build on the card title and make up the
           bulk of the card's content.
         </Card.Text>
+        <Button onClick={LearnMore()} variant="primary" style={{margin: '5px'}}>Learn More!</Button>
         <Button variant="primary" onClick={() => actions.addFavorites(data)}>Favorite</Button>
       </Card.Body>
     </Card>
