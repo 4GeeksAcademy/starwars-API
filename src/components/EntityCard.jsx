@@ -1,3 +1,4 @@
+import React from 'react';
 import { Button } from 'react-bootstrap/';
 import { useContext } from 'react';
 import { Card } from 'react-bootstrap/';
@@ -6,9 +7,9 @@ import { FavoritesContext } from '../Favorites';
 
 
 function EntityCard({data}) {
-    const [store, actions] = useContext(FavoritesContext);
+    const {store, actions} = useContext(FavoritesContext);
   return (
-    <Card style={{ width: '18rem' }}>
+    <Card style={{ width: '18rem', margin: '30px' }}>
       <Card.Img variant="top" src={cardDefaultSVG} />
       <Card.Body>
         <Card.Title>{data.name}</Card.Title>
