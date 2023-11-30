@@ -17,11 +17,29 @@ useEffect(() => {
       const peopleRes = await fetch('https://www.swapi.tech/api/people');
       const peopleData = await peopleRes.json();
       setPeople(peopleData.results);
+    } catch (error) {
+      console.error('Error fetching data:', error);
+    }
+  };
+  fetchData();
+}, []);
 
+useEffect(() => {
+  const fetchData = async () => {
+    try {
       const planetsRes = await fetch ('https://www.swapi.tech/api/planets')
       const planetsData = await planetsRes.json();
       setPlanets(planetsData.results);
+    } catch (error) {
+      console.error('Error fetching data:', error);
+    }
+  };
+  fetchData();
+}, []);
 
+useEffect(() => {
+  const fetchData = async () => {
+    try {
       const vehiclesRes = await fetch ('https://www.swapi.tech/api/vehicles')
       const vehiclesData = await vehiclesRes.json();
       setVehicles(vehiclesData.results);
@@ -34,7 +52,7 @@ useEffect(() => {
 
   return (
     <>
-      <SWNav />'
+      <SWNav />
       <h1>People</h1>
       {
         people.map(({uid, name, url}) => {
