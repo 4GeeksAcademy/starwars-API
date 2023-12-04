@@ -2,10 +2,14 @@ import React, { useContext } from 'react';
 import Dropdown from 'react-bootstrap/Dropdown';
 import { FavoritesContext } from '../Favorites';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTrashCan } from "@fortawesome/free-solid-svg-icons";
+import { faRightFromBracket, faTrashCan } from "@fortawesome/free-solid-svg-icons";
 
 function FavDropdown() {
-  const { store } = useContext(FavoritesContext);
+  const { store, actions } = useContext(FavoritesContext);
+
+  const handleRemove = (uid) => {
+    actions.removeFavorites(uid); 
+  };
 
   return (
       <Dropdown>
@@ -17,16 +21,17 @@ function FavDropdown() {
           {
               store.favorites.map( ({uid, name}) => {
                   return (
-                  <Dropdown.Item key={uid}>
-                    <div style={{padding: '1px'}}>
-                      {name}
-                    </div>
-                    <FontAwesomeIcon
-                      icon={faTrashCan}
-                      className="trash-can"
-                      style={{padding: '1px'}}
-                    />
-                  </Dropdown.Item>
+                    <Dropdown.Item key={uid}>
+                      <div style={{padding: '7px', display: 'inline-block'}}>
+                        {name}
+                      </div>
+                      <FontAwesomeIcon
+                        icon={faTrashCan}
+                        className="trash-can"
+                        style={{ cursor: 'pointer'}}
+                        onClick={() => handleRemove(uid)}
+                      />
+                    </Dropdown.Item>
                   )})
           }
         </Dropdown.Menu>

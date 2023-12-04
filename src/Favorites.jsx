@@ -17,7 +17,12 @@ export const FavoritesWrapper = (props) => {
 				}
 				return {favorites}
 			})
-		}
+		},
+		removeFavorites: (uid) => {
+			setStore(({ favorites }) => ({
+			  favorites: favorites.filter((fav) => fav.uid !== uid),
+			}));
+		  },
 	});
 	
 	return (

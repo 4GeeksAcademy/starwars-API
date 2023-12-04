@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { FavoritesContext } from './Favorites';
 import EntityCard from './components/EntityCard';
-import SWNav from './SWNav';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 
@@ -52,7 +51,6 @@ useEffect(() => {
 
   return (
     <>
-      <SWNav />
       <h1>People</h1>
       {
         people.map(({uid, name, url}) => {
@@ -62,14 +60,20 @@ useEffect(() => {
         })
       }
       <h1>Planets</h1>
-      {planets.map(({ uid, name, url }) => (
-        <EntityCard key={uid} data={{ uid, name, url, type:"planets" }} />
-      ))}
+      {
+      planets.map(({ uid, name, url }) => {
+        return(
+          <EntityCard key={uid} data={{ uid, name, url, type:"planets" }} />
+          )
+        })
+      }
       <h1>Vehicles</h1>
-      {vehicles.map(({ uid, name, url }) => (
-        <EntityCard key={uid} data={{ uid, name, url, type:"vehicles" }} />
-      ))}
-      
+      {vehicles.map(({ uid, name, url }) => {
+        return(
+          <EntityCard key={uid} data={{ uid, name, url, type:"vehicles" }} />
+          )
+        })
+      }
     </>
   )
 }

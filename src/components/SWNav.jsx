@@ -1,7 +1,7 @@
 import React from "react";
 import Navbar from 'react-bootstrap/Navbar';
 import Image from 'react-bootstrap/Image';
-import FavDropdown from "./components/FavDropdown";
+import FavDropdown from "./FavDropdown";
 
 function SWNav(){
     return (
